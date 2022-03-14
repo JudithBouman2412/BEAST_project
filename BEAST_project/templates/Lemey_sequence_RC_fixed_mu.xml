@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='utf-8'?>
+<beast beautistatus="noAutoSetClockRate" beautitemplate="Standard" namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="BEAST v2.5.1:BEAST_CLASSIC v1.4.0" version="2.5">
+
+
+    <data id="Scenario_1" name="alignment">
+                        <sequence id="seq_27_pop0_1000" taxon="27_pop0_1000" totalcount="4" value="GATCGCTTGCTTTGAACACTATACCTTCCCATACTACAAGTGGTATGAGTGACGCCTGGTGTCATCCAATACGGCCAGCTAGTAAGGGCCGCACAGTGGTAAAAACACAGACGAGAATCCGCAAATGTAACAGAAAATAATATATGTGTATTATGTTAATCGATTAAGAAACATCTGCGCAACAGATTACCACTGCGATACTACGGGATAAGCTCACCTTAGGCCGAGAACACACAGGACGACTATGAGTCCCCCAACGAAATGAGAGTAGTGTGCATCTTAAAACTCTTACTAACAAGAAAAATACGCTAACTAAGGCACCCGGGGAAAAACAACCTACGAGTGTGGAACAAATTAAACCGGAAGCGCGAATTTAGGCATTCAAAGCAGGCTTAAGATGAACTTCCGGTGATAATCCATAAAATTATACAGAAGCATACACAGAATCGCTTAATAGTCTGGCATGAGGAGTGAGAAGTGATGAATAAGTAGAAAGACGCGAAGATGCGCCAACTATGAAAAACACGCAAGGGAGTCGTTAAATCAAAGGCTTGGGAGATTGTAAAATTTTGAAAAACCTAAAGTTAGGACAAAAACTTATATGCCAGAGACTACGAGAGATGGGTTCGATTGTCGGCTTCTTCTTAGTGTGGGTAGGACTCAGGCCCAATGGGAAGGGAAAGAAGATACATGTAATGAACGATATCTTGTAGAAGGAGATATACCAGAATGGAAAATGTAACTTGAGCACGAGTTTGACCCTATACCATAATCACTAATAAAGACAAAAAGTAGAAAGACGGTCACCCCGCGAAACTATACCCTGGTGAAGGCGCGTTTACACAAGTGAACCTGCGTAGCCGGCAAAACGACCGCGAATGCGAATCAGTATACTTCGCAGTGAAGAAGGAAACATACCTGTGTCTCGAAAGATATGCCTAGCCAATGCACTATGAGGAAGCAAGCGCCGAAATCAATGAGGGATTCCCGGTTCTTAAAGCCAACCATACGAAAACGTCAGGAGACCGGCCTTAAGGATAATTTTATACTATCCAGATTAGTATTATACTGTCCCCTAGCCCACCCATGACGGGAGAATCAAACAGTTAGTTCTGTACAAAATACCTGAAGTTTTTCGTTCCTCGTGCAAGAGGACAAACAGACCGAATAAAGTACGCTGCAAAAGGAAAAGACATCCAACTACTGTTAACCGCGCACATAGTCTAAATGTGGCAGACCAGAGGTCCTGAAGATTACGACCATTAGGGTACAACAAGCCGAACATGTAATTTTACAAGAGAACCAGTACGTAAAAAAATCCAGGCGTCGCATATATCATGAACGATAAAGCCTAATTAGTCTCCTAGCGGCAGCCTCGTCGTTGAACGAGGCGCACTCTGGATGTCCAACAATACCCACCGATAGTCCATATTACTCCACCGGAACGAAACGCATCATTTTCCCAAAAAAAAACGCCAACGGATATCAACGCCAATACACGAGCAAGTATCCAATTCCTTGACTCAAAGCTGATCATACTACTAATCCCGAGCTGAGGTCAAATTCTCAATAAGAATGACTTGAGAGTGAAAACGATTCTACAAGCCTCAACTATATCATCCTATCGTTTATCGAGGGATAAAACAAGAAAGGCGGCGACAATCGCACAACCATATACAGGACCATCAGAGCAATACAACTAAAGAAGAGCAAAGAAAGCGGGATGGAGCGATCAAGGTGGCATAAATTAGCAAGGGGGCTCCAAGGGCACTGAAGCTAAAGAGATGTGTACAAGCTGATATAAAGAGCCCAAAAGTAAGGGACCAGGGCTGGAACAGCCGATAGCCCATATTTGTCGGTCGAACTGTGCGTCTGGGTATCCGGAAGTGCACTCCTCGAGTCGAGCAGGACTGGAGCACCGTGAGCATAAAGCAAGACGAGTGGAAAAGGGCATCCGCCACTCACAACTATGTTTACTGAAAGAATGAGGAGGGTCAGCCTTAAAAAGCTATATCAACACTCAGGAGCACGGAGCGGATAAACAGTTTACTTGTCAGAGCTAAAACAACGCACTCCACCCTAACAGTACGGCCACCGGCAATGGATGGACAAGTACCCGTAGCGAGAATCCAAAAAAGCAGCGAAAGAGACGAAAACAAGAGTTGAGAGTTGAACCAATTCTTCTAGACGTGGGAACGGTCTTTAACCAGAGCCAACCAGGGACACAGCTCTTCATAACAAGCATATCGAAAAAACAGGGGGGTTGGCGGTATTGACGTACCTATCGACAAGATAACTAACTATGTTGACGGCAGTAATAAGAACCACAGAGCCGCGAGGTAATATTCTGATCCGCCCTGTCACGCCGAATGCAATGACCAGAGATAAAATTATTTAATCGCTTATTAAATAATAAGCCGTGAGGGGGCACGTGCAAGAGCACGAAGAACCGCAATTTAGCGTGGGGAAACCGGGCGCGCTGATCGTTCATTAAGAAAATTGTCAAAATAAGCAAAAGGCGAACAATACCCCACTTAAGGCAGGGGAAAGATTAAACTAATAAGAACGCAGCAGTGGAACTTTGACGGAGGCGCTTGCCC" />
+                    </data>
+
+
+    
+
+
+    
+
+
+    
+<map name="Uniform">beast.math.distributions.Uniform</map>
+<map name="Exponential">beast.math.distributions.Exponential</map>
+<map name="LogNormal">beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal">beast.math.distributions.Normal</map>
+<map name="Beta">beast.math.distributions.Beta</map>
+<map name="Gamma">beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution">beast.math.distributions.LaplaceDistribution</map>
+<map name="prior">beast.math.distributions.Prior</map>
+<map name="InverseGamma">beast.math.distributions.InverseGamma</map>
+<map name="OneOnX">beast.math.distributions.OneOnX</map>
+
+
+<run chainLength="500000000" id="mcmc" spec="MCMC">
+    <state id="state" storeEvery="5000">
+        <tree id="Tree.t:Scenario_1" name="stateNode">
+            <trait id="dateTrait.t:Scenario_1" spec="beast.evolution.tree.TraitSet" traitname="date-backward">
+                
+<taxa id="TaxonSet.Scenario_1" spec="TaxonSet">
+                    <alignment idref="Scenario_1" />
+                </taxa>
+            </trait>
+            <taxonset idref="TaxonSet.Scenario_1" />
+        </tree>
+        <stateNode id="rateIndicator.s:Location" spec="parameter.BooleanParameter">true</stateNode>
+        <parameter id="relativeGeoRates.s:Location" name="stateNode">1.0</parameter>
+        <parameter id="traitClockRate.c:Location" lower="0.0" name="stateNode" upper="0.4">0.001</parameter>
+        <parameter id="popSize.t:Scenario_1" lower="0.0" name="stateNode" upper="100000.0">2000.0</parameter>
+        <stateNode dimension="398" id="expRateCategories.c:Scenario_1" spec="parameter.IntegerParameter">1</stateNode>
+        <parameter dimension="4" id="freqParameter.s:Scenario_1" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+    </state>
+
+    <init estimate="false" id="RandomTree.t:Scenario_1" initial="@Tree.t:Scenario_1" spec="beast.evolution.tree.RandomTree" taxa="@Scenario_1">
+        <populationModel id="ConstantPopulation0.t:Scenario_1" spec="ConstantPopulation">
+            <parameter id="randomPopSize.t:Scenario_1" name="popSize">1.0</parameter>
+        </populationModel>
+    </init>
+
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <distribution id="CoalescentConstant.t:Scenario_1" spec="Coalescent">
+                <populationModel id="ConstantPopulation.t:Scenario_1" popSize="@popSize.t:Scenario_1" spec="ConstantPopulation" />
+                <treeIntervals id="TreeIntervals.t:Scenario_1" spec="TreeIntervals" tree="@Tree.t:Scenario_1" />
+            </distribution>
+            <prior id="nonZeroRatePrior.s:Location" name="distribution">
+                <x id="nonZeroRates.s:Location" spec="util.Sum">
+                    <arg idref="rateIndicator.s:Location" />
+                </x>
+                <distr id="Poisson.0" offset="1.0" spec="beast.math.distributions.Poisson">
+                    <parameter estimate="false" id="RealParameter.5" name="lambda">0.693</parameter>
+                </distr>
+            </prior>
+            <prior id="PopSizePrior.t:Scenario_1" name="distribution" x="@popSize.t:Scenario_1">
+                <LogNormal id="LogNormalDistributionModel.21" name="distr">
+                    <parameter estimate="false" id="RealParameter.119" name="M">4.65</parameter>
+                    <parameter estimate="false" id="RealParameter.120" lower="0.0" name="S" upper="5.0">1.24</parameter>
+                </LogNormal>
+            </prior>
+            <prior id="relativeGeoRatesPrior.s:Location" name="distribution" x="@relativeGeoRates.s:Location">
+                <Gamma id="Gamma.1" name="distr">
+                    <parameter estimate="false" id="RealParameter.3" name="alpha">1.0</parameter>
+                    <parameter estimate="false" id="RealParameter.4" name="beta">1.0</parameter>
+                </Gamma>
+            </prior>
+            <prior id="geoclockPrior.c:Location" name="distribution" x="@traitClockRate.c:Location">
+                <Exponential id="Exponential.4" name="distr">
+                    <parameter estimate="false" id="RealParameter.121" name="mean">0.05</parameter>
+                </Exponential>
+            </prior>
+
+                <distribution id="root.prior" monophyletic="true" spec="beast.math.distributions.MRCAPrior" tree="@Tree.t:Scenario_1">
+                    <taxonset idref="TaxonSet.Scenario_1" />
+                    <Uniform id="Uniform.20" lower="100" name="distr" upper="1000" />
+                </distribution>
+
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+            <distribution data="@Scenario_1" id="treeLikelihood.Scenario_1" spec="ThreadedTreeLikelihood" tree="@Tree.t:Scenario_1">
+              <siteModel id="SiteModel.s:Scenario_1" spec="SiteModel"
+                         mutationRate="1.0e-4">
+                    <parameter estimate="false" id="gammaShape.s:Scenario_1" name="shape">1.0</parameter>
+                    <parameter estimate="false" id="proportionInvariant.s:Scenario_1" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel id="gtr.s:Scenario_1" spec="GTR">
+                        <parameter estimate="false" id="rateAC.s:Scenario_1" lower="0.0" name="rateAC">0.1665</parameter>
+                        <parameter estimate="false" id="rateAG.s:Scenario_1" lower="0.0" name="rateAG">0.3151</parameter>
+                        <parameter estimate="false" id="rateAT.s:Scenario_1" lower="0.0" name="rateAT">0.138</parameter>
+                        <parameter estimate="false" id="rateCG.s:Scenario_1" lower="0.0" name="rateCG">0.09995</parameter>
+                        <parameter estimate="false" id="rateCT.s:Scenario_1" lower="0.0" name="rateCT">0.2437</parameter>
+                        <parameter estimate="false" id="rateGT.s:Scenario_1" lower="0.0" name="rateGT">0.1032</parameter>
+                        <frequencies frequencies="@freqParameter.s:Scenario_1" id="estimatedFreqs.s:Scenario_1" spec="Frequencies" />
+                    </substModel>
+                </siteModel>
+                <branchRateModel id="ExponentialRelaxedClock.c:Scenario_1" rateCategories="@expRateCategories.c:Scenario_1" spec="beast.evolution.branchratemodel.UCRelaxedClockModel"
+                                 tree="@Tree.t:Scenario_1" normalize="true">
+                    <Exponential id="Exponential.c:Scenario_1" name="distr">
+                        <parameter id="UCExpLambda.c:Scenario_1" name="mean">1.0</parameter>
+                    </Exponential>
+                    <!--parameter estimate="false" id="ucedMean.c:Scenario_1" name="clock.rate">2.16E-4</parameter -->
+                </branchRateModel>
+            </distribution>
+            <distribution id="traitedtreeLikelihood.Location" spec="AncestralStateTreeLikelihood" tag="location" tree="@Tree.t:Scenario_1">
+                <data id="Location" spec="AlignmentFromTrait">
+                    <traitSet id="traitSet.Location" spec="beast.evolution.tree.TraitSet" taxa="@TaxonSet.Scenario_1" traitname="discrete">
+</traitSet>
+                    <userDataType codeMap="pop0=0,pop1=1,? = 0 1 " codelength="-1" id="traitDataType.Location" spec="beast.evolution.datatype.UserDataType" states="2" />
+                </data>
+                <siteModel id="geoSiteModel.s:Location" spec="SiteModel">
+                    <parameter estimate="false" id="mutationRate.s:Location" name="mutationRate">1.0</parameter>
+                    <parameter estimate="false" id="gammaShape.s:Location" name="shape">1.0</parameter>
+                    <parameter estimate="false" id="proportionInvariant.s:Location" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel id="svs.s:Location" rateIndicator="@rateIndicator.s:Location" rates="@relativeGeoRates.s:Location" spec="SVSGeneralSubstitutionModel">
+                        <frequencies id="traitfreqs.s:Location" spec="Frequencies">
+                            <parameter dimension="2" id="traitfrequencies.s:Location" name="frequencies">0.5</parameter>
+                        </frequencies>
+                    </substModel>
+                </siteModel>
+                <branchRateModel clock.rate="@traitClockRate.c:Location" id="StrictClockModel.c:Location" spec="beast.evolution.branchratemodel.StrictClockModel" />
+            </distribution>
+        </distribution>
+    </distribution>
+
+    <operator id="georateScaler.s:Location" parameter="@relativeGeoRates.s:Location" scaleAllIndependently="true" scaleFactor="0.99" spec="ScaleOperator" weight="30.0" />
+
+    <operator id="indicatorFlip.s:Location" parameter="@rateIndicator.s:Location" spec="BitFlipOperator" weight="30.0" />
+
+    <operator id="geoMuScaler.c:Location" parameter="@traitClockRate.c:Location" scaleFactor="0.9" spec="ScaleOperator" weight="3.0" />
+
+    <operator id="BSSVSoperator.c:Location" indicator="@rateIndicator.s:Location" mu="@traitClockRate.c:Location" spec="BitFlipBSSVSOperator" weight="30.0" />
+
+    <operator id="CoalescentConstantTreeScaler.t:Scenario_1" scaleFactor="0.5" spec="ScaleOperator" tree="@Tree.t:Scenario_1" weight="3.0" />
+
+    <operator id="CoalescentConstantTreeRootScaler.t:Scenario_1" rootOnly="true" scaleFactor="0.5" spec="ScaleOperator" tree="@Tree.t:Scenario_1" weight="3.0" />
+
+    <operator id="CoalescentConstantUniformOperator.t:Scenario_1" spec="Uniform" tree="@Tree.t:Scenario_1" weight="30.0" />
+
+    <operator id="CoalescentConstantSubtreeSlide.t:Scenario_1" spec="SubtreeSlide" tree="@Tree.t:Scenario_1" weight="15.0" />
+
+    <operator id="CoalescentConstantNarrow.t:Scenario_1" spec="Exchange" tree="@Tree.t:Scenario_1" weight="15.0" />
+
+    <operator id="CoalescentConstantWide.t:Scenario_1" isNarrow="false" spec="Exchange" tree="@Tree.t:Scenario_1" weight="3.0" />
+
+    <operator id="CoalescentConstantWilsonBalding.t:Scenario_1" spec="WilsonBalding" tree="@Tree.t:Scenario_1" weight="3.0" />
+
+    <operator id="PopSizeScaler.t:Scenario_1" parameter="@popSize.t:Scenario_1" scaleFactor="0.75" spec="ScaleOperator" weight="3.0" />
+
+    <!--operator delta="0.75" id="FixMeanMutationRatesOperator" spec="DeltaExchangeOperator" weight="2.0">
+        <parameter idref="mutationRate.s:Scenario_1" />
+        <weightvector estimate="false" id="weightparameter" lower="0" spec="parameter.IntegerParameter" upper="0">2600</weightvector>
+    </operator-->
+
+    <operator id="ExpCategoriesRandomWalk.c:Scenario_1" parameter="@expRateCategories.c:Scenario_1" spec="IntRandomWalkOperator" weight="10.0" windowSize="1" />
+
+    <operator id="ExpCategoriesSwapOperator.c:Scenario_1" intparameter="@expRateCategories.c:Scenario_1" spec="SwapOperator" weight="10.0" />
+
+    <operator id="ExpCategoriesUniform.c:Scenario_1" parameter="@expRateCategories.c:Scenario_1" spec="UniformOperator" weight="10.0" />
+
+    <operator delta="0.01" id="FrequenciesExchanger.s:Scenario_1" spec="DeltaExchangeOperator" weight="0.1">
+        <parameter idref="freqParameter.s:Scenario_1" />
+    </operator>
+
+    <logger fileName="without_RC_exp_CTL_Neutral_Final_results_2_m0.001n19S100P100G1000.log" id="tracelog" logEvery="2000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <log idref="posterior" />
+        <log idref="likelihood" />
+        <log idref="prior" />
+        <log idref="treeLikelihood.Scenario_1" />
+        <log id="TreeHeight.t:Scenario_1" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:Scenario_1" />
+        <log idref="rateIndicator.s:Location" />
+        <log idref="relativeGeoRates.s:Location" />
+        <log idref="traitClockRate.c:Location" />
+        <log dataType="@traitDataType.Location" id="geoSubstModelLogger.s:Location" model="@svs.s:Location" spec="SVSGeneralSubstitutionModelLogger" />
+        <log idref="popSize.t:Scenario_1" />
+        <log idref="CoalescentConstant.t:Scenario_1" />
+        <log branchratemodel="@ExponentialRelaxedClock.c:Scenario_1" id="rateStat.c:Scenario_1" spec="beast.evolution.branchratemodel.RateStatistic" tree="@Tree.t:Scenario_1" />
+        <log idref="freqParameter.s:Scenario_1" />
+    </logger>
+
+    <logger id="screenlog" logEvery="2000">
+        <log idref="posterior" />
+        <log arg="@posterior" id="ESS.0" spec="util.ESS" />
+        <log idref="likelihood" />
+        <log idref="prior" />
+    </logger>
+
+    <logger fileName="without_RC_exp_CTL_Neutral_Final_results_2_m0.001n19S100P100G1000.trees" id="treelog.t:alignment" logEvery="2000" mode="tree">
+        <log branchratemodel="@ExponentialRelaxedClock.c:Scenario_1" id="TreeWithMetaDataLogger.t:Scenario_1" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:Scenario_1" />
+    </logger>
+
+    <logger fileName="Location_tree_with_trait.trees" id="treeWithTraitLogger.Location" logEvery="10000000" mode="tree">
+        <log id="TreeWithTraitLogger.0" spec="beast.evolution.tree.TreeWithTraitLogger" tree="@Tree.t:Scenario_1">
+            <metadata idref="posterior" />
+            <metadata idref="traitedtreeLikelihood.Location" />
+        </log>
+    </logger>
+
+    <logger fileName="$(tree).trees" id="treelog.t:Scenario_1" logEvery="1000" mode="tree">
+        <log idref="TreeWithMetaDataLogger.t:Scenario_1" />
+    </logger>
+
+</run>
+
+</beast>

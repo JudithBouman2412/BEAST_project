@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='noAutoSetClockRate' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="BEAST v2.5.0:BEAST_CLASSIC v1.4.0" version="2.5">
+
+
+    <data id="data" name="alignment">
+                        <sequence id="seq_12_pop0_100" taxon="12_pop0_100" totalcount="4" value="GGAGCTGCCCGCTTAGAAGCAAAGTGAAATGCGAAGACATGTAAATCTTTACGACTAGTCTAAACACAATAGCAAACTGGAGTGAAATCTTCTAGGACACAATACACCTGATCGGTGAGCGAAGATGATAAAAACTTAAACTAGGCTAGTAATTTCTTAATATACAACTCAGACATGTCCAATCAAGAAAACCCCGGAGAGCATTAACTGAGCTGTGTACGTACTGAAACGAAAACTATACTATCATAAGGGAAAGTAAACTGCTGTAGGAGGAAAAGATATGGACAGAAGAGGAAGCCCGGGTCACAAGGGGCAAAACATCCACATAATACTGCCAACCCAGACTAGGCGAAAGATTACGTCACGAGTTGACAATTACGATCCTAGGAATAACAGCGGGAGGCACCCCATACATGAACTATCCACCGAGCTTAGGTAAGACCAGACACTAGTCAATCGGAATACATGATTGAATAGTGGAGCAAACAGTTGGGCCTCGTGGTAAGTGAGATTGGAGGTAGAAATCATAAAGTGTCCCTATCGTGAAGAGAGCCCACTTCCAGTACATCTTGAGTAGAAAACAGGACTAAGCAAGCGAAGGAGCGTAGTAGCACAATGATGCGCAAAGACGTGTACACTCCGGAAGAAATGAGTACATGCGAGGGGAAAAACGGTAGGTTTCCGACCGAAACCATCAGTCCAAGATGTAGCCAGAAGTATAGAAGTATTGCCGGGAAACTGACAGCACACAAAACAGCTGGTGTAAGAACTATATGCAAAACACGCAATTCATAAGACGTCCAAGGAATGACAAAGAACACGTCAAATGACTACATATGGATGGCAATCTAACAAAAATTATAACCACATCACAGAACTAAACGCCCGAGGGATCGAACGCCTTACTTAATAAAGATAACGATTCTGTAGACTGAGATGCGTTTGTAGGCTTAGGTGCTAAAACCACGAAATTGGAGCCGACGACAGGAGCCAAAAGATATGTAAGATGATGGAATCAGGCAAAAAGTGCAACGCTGAAACCAATATTTTTCGGACATTTGTGAGGCGCCGCAGAGGGGTAACAAAAGACGTTCCCCGTCGACGGCGCTAAGACTATGTGCTTAACCGAAGGCAAGGACCCAAAGAGCCAAAGGAAATGGACATAGAACAAACAGTGGGTTAATGAAGCATGATTACATAAGTCCATTCGGACGACAGTGTAGCCGAACGAGAAGAAAAACCTGCTCAACCTATGAAAGACTATCTGTAAACAAGCAGGAAAAAAAGATCGGCATGCATGCACCCGCTGAATGTTAACTAAAAAAAGGTAAAGGTGCCAGACCGAAATCCTAAGTACTACGAAATAAAAGGAATATAGTCTATGCGTCCTTATGGTTGTCGCGAAGATCTTGATGGGTAAAAACAAGAGGAGACTGCGCATAGGTCAGGACCTAGTGCCGAACCGCAAGTTTGGTGTTTGGCCGTTCCTGAAGCACAGGACGAAAGGATAAACACGAAAGAAACGGAAGAATCTAAGCTGTTCTTATGGGGGTTACCAACTAGAGACCGCTTAACGAATAATGGCAGGAATCGGCTCTTCACCGCCCACAATATAAACCTGGGGGTCTATTCGAAATCGGAAATCACCTCCAAGTTGCTTTCGTGCACGTAAAACAGACAACAGAAAGGCATTCTGTGGAGACCACGAACAAGTTCTCAATCTAGATGCAACGAAGTTTCGGCAACCCTAGCAGCGGAACGTGAATTGAAAACAAAGTTTGGGAAGTACTACACAATGGTAAATGCGGCCAACTAAAAGACAGCGCCTAGTAAGGGAACAAGGGGCATTGACCCTGACCCGCAAGTACTAGGAACGAGAGCTCTGTTAGGAGACATAAAATTATAGAACCAGAGTGAGCAGGGGCGACGCATGTCCACGTTAGTTGGTGAGTCAATGAATCACACCCTTGATTTGGACCTTAATGAGGATAGAACACAAAATTCAACTAACTCGTCCCCGATAGTAACGACACCGGGAAACGATGTTGTGCTTCAATGGCGCACTACAAAAGGCAAAGATACAAAAGCTTTCGGTAGTAGCGTACATCCACAAAATCTACACGGACCCGCATGATCGTCCAACTTGGTCAATACGCCAACGACGTCTTCTTTGTACAATTTATGAAAAACACCAATGAACCAAAGTACAGCAATACGGCCTACTCTGAAAGAGAATGAGGCTCGCGAATGACGCTGGAGAAAGGGAACACAAACAGGAACCAAAGAAGACAACCCAAATGTTGTAAACAGCGTGGACCATCTGGGTAACCTATTGGAAGTAGTGGGAGTTTGCGCTTCGACGACGGCATTGTGCTATCAGCACTACGACATACAAACTGACAGCCAAGAAGGTAAGTAAAGCAGCACAGGTGTGGGGCCTCACGCAGGGCGAAGGGTCAGCAAAAGTACTATGTAGCATAGATCAATAGGATGATCAGGTGTTTCTGAGCCATTAGTTGTCGAACAATAGAGTCTTTCGGGGGTGCATTTATCAACGCTGATGACTTAACGCCAGCATAGCGAGGATGCTCACCACGTTT"/>
+                       </data>
+    
+<map name="Uniform" >beast.math.distributions.Uniform</map>
+<map name="Exponential" >beast.math.distributions.Exponential</map>
+<map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal" >beast.math.distributions.Normal</map>
+<map name="Beta" >beast.math.distributions.Beta</map>
+<map name="Gamma" >beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+<map name="prior" >beast.math.distributions.Prior</map>
+<map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+<map name="OneOnX" >beast.math.distributions.OneOnX</map>
+
+<tree id="tree" spec='feast.fileio.TreeFromNewickFile' fileName=""
+        IsLabelledNewick="true" adjustTipHeights="false">
+    <taxonset id="TaxonSet.data" spec="TaxonSet">
+        <alignment idref="data"/>
+    </taxonset>
+</tree>
+
+<run id="mcmc" spec="MCMC" chainLength="50000000">
+    <state id="state" storeEvery="5000">
+        <: id="Tree.t:data" spec="beast.evolution.tree.StructuredCoalescentMultiTypeTree">
+            <migrationModel id="migModelInit.t:data" spec="beast.evolution.tree.SCMigrationModel">
+                <parameter id="RealParameter.0" dimension="2" estimate="false" name="rateMatrix">0.001 0.001</parameter>
+                <parameter id="RealParameter.1" estimate="false" name="rateMatrixScaleFactor">1.0</parameter>
+                <parameter id="RealParameter.2" dimension="2" estimate="false" name="popSizes">100.0 100.0</parameter>
+                <parameter id="RealParameter.3" estimate="false" name="popSizesScaleFactor">1.0</parameter>
+                <typeSet id="typeSet.t:data" spec="beast.evolution.tree.TypeSet" value="">
+                    <typeTraitSet id="typeTraitSetInput.t:data" spec="beast.evolution.tree.TraitSet" traitname="type">
+                        
+                        <taxa id="taxonsSet.t:data" spec="TaxonSet">
+                            <alignment idref="data"/>
+                        </taxa>
+                    </typeTraitSet>
+                </typeSet>
+            </migrationModel>
+            <typeTrait idref="typeTraitSetInput.t:data"/>
+            <typeSet idref="typeSet.t:data"/>
+            <taxonset idref="taxonsSet.t:data"/>
+        </stateNode>
+        <parameter id="popSizes.t:data" dimension="2" name="stateNode">100.0 100.0</parameter>
+        <parameter id="rateMatrix.t:data" dimension="2" name="stateNode">0.001 0.001</parameter>
+        <parameter id="freqParameter.s:data" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+    </state>
+    
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <prior id="popSizesPrior.t:data" name="distribution" x="@popSizes.t:data">
+                <Uniform id="Uniform.7" name="distr" upper="5000.0"/>
+            </prior>
+            <prior id="rateMatrixPrior.t:data" name="distribution" x="@rateMatrix.t:data">
+                <Uniform id="Uniform.6" name="distr"/>
+            </prior>
+            <distribution id="structuredCoalescent.t:data" spec="multitypetree.distributions.StructuredCoalescentTreeDensity" multiTypeTree="@Tree.t:data">
+                <migrationModel id="migModel.t:data" spec="beast.evolution.tree.SCMigrationModel" popSizes="@popSizes.t:data" rateMatrix="@rateMatrix.t:data" typeSet="@typeSet.t:data">
+                    <parameter id="rateMatrixScaleFactor.t:data" estimate="false" name="rateMatrixScaleFactor">1.0</parameter>
+                    <parameter id="popSizesScaleFactor.t:data" estimate="false" name="popSizesScaleFactor">1.0</parameter>
+                </migrationModel>
+            </distribution>
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution">
+            <distribution id="treeLikelihood.data" spec="TreeLikelihood" data="@data" tree="@Tree.t:data">
+                <siteModel id="SiteModel.s:data" spec="SiteModel">
+                    <parameter id="mutationRate.s:data" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:data" estimate="false" name="shape">1.0</parameter>
+                    <parameter id="proportionInvariant.s:data" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel id="gtr.s:data" spec="GTR">
+                        <parameter id="rateAC.s:Scenario_1" estimate="false" lower="0.0" name="rateAC">1.0</parameter>
+                        <parameter id="rateAG.s:Scenario_1" estimate="false" lower="0.0" name="rateAG">1.0</parameter>
+                        <parameter id="rateAT.s:Scenario_1" estimate="false" lower="0.0" name="rateAT">1.0</parameter>
+                        <parameter id="rateCG.s:Scenario_1" estimate="false" lower="0.0" name="rateCG">1.0</parameter>
+                        <parameter id="rateCT.s:Scenario_1" estimate="false" lower="0.0" name="rateCT">1.0</parameter>
+                        <parameter id="rateGT.s:Scenario_1" estimate="false" lower="0.0" name="rateGT">1.0</parameter>
+                        <frequencies id="estimatedFreqs.s:data" spec="Frequencies" frequencies="@freqParameter.s:data"/>
+                    </substModel>
+                </siteModel>
+                <branchRateModel id="StrictClock.c:data" spec="beast.evolution.branchratemodel.StrictClockModel">
+                    <parameter id="clockRate.c:data" estimate="false" name="clock.rate">2.16E-5</parameter>
+                </branchRateModel>
+            </distribution>
+        </distribution>
+    </distribution>
+    
+    
+    <operator id="STX.t:data" spec="multitypetree.operators.TypedSubtreeExchange" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data" weight="10.0"/>
+    
+    <operator id="TWB.t:data" spec="multitypetree.operators.TypedWilsonBalding" alpha="0.2" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data" weight="10.0"/>
+    
+    <operator id="NR.t:data" spec="multitypetree.operators.NodeRetype" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data" weight="10.0"/>
+    
+    <operator id="NSR1.t:data" spec="multitypetree.operators.NodeShiftRetype" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data" rootOnly="true" weight="10.0"/>
+    
+    <operator id="NSR2.t:data" spec="multitypetree.operators.NodeShiftRetype" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data" noRoot="true" weight="10.0"/>
+    
+    <operator id="MTU.t:data" spec="multitypetree.operators.MultiTypeUniform" includeRoot="true" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data" weight="10.0"/>
+    
+    <operator id="MTTS.t:data" spec="multitypetree.operators.MultiTypeTreeScale" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data" scaleFactor="0.98" useOldTreeScaler="true" weight="10.0"/>
+    
+    <operator id="MTTUpDown.t:data" spec="multitypetree.operators.MultiTypeTreeScale" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data" scaleFactor="0.98" useOldTreeScaler="true" weight="10.0">
+        <parameter idref="popSizes.t:data"/>
+        <parameterInverse idref="rateMatrix.t:data"/>
+    </operator>
+    
+    <operator id="MTTUpDownScaleFactors.t:data" spec="multitypetree.operators.MultiTypeTreeScale" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data" scaleFactor="0.98" useOldTreeScaler="true" weight="10.0"/>
+    
+    <operator id="FrequenciesExchanger.s:data" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
+        <parameter idref="freqParameter.s:data"/>
+    </operator>
+    
+    <operator id="popSizesScaler.t:data" spec="ScaleOperator" parameter="@popSizes.t:data" scaleFactor="0.8" weight="1.0"/>
+    
+    <operator id="rateMatrixScaler.t:data" spec="ScaleOperator" parameter="@rateMatrix.t:data" scaleFactor="0.8" weight="1.0"/>
+    
+    <logger id="tracelog" fileName="$(filebase).log" logEvery="1000">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+        <log idref="treeLikelihood.data"/>
+        <log id="treeHeight.t:data" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:data"/>
+        <log id="treeLength.t:data" spec="multitypetree.util.TreeLengthLogger" tree="@Tree.t:data"/>
+        <log id="typeLengths.t:data" spec="multitypetree.util.TypeLengths" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data"/>
+        <log id="changeCounts.t:data" spec="multitypetree.util.TypeChangeCounts" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data"/>
+        <log id="nodeTypeCounts.t:data" spec="multitypetree.util.NodeTypeCounts" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data"/>
+        <log id="rootTypeLogger.t:data" spec="multitypetree.util.TreeRootTypeLogger" multiTypeTree="@Tree.t:data"/>
+        <log id="migModelLogger.t:data" spec="multitypetree.util.MigrationModelLogger" migrationModel="@migModel.t:data" multiTypeTree="@Tree.t:data"/>
+        <log idref="freqParameter.s:data"/>
+    </logger>
+    
+    <logger id="screenlog" logEvery="1000">
+        <log idref="posterior"/>
+        <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+    </logger>
+    
+    <logger id="treelog.t:alignment" fileName="$(filebase).$(tree).trees" logEvery="10000" mode="tree">
+        <log idref="Tree.t:data"/>
+    </logger>
+    
+    <logger id="maptreelog.t:data" fileName="$(filebase).data.map.trees" logEvery="10000" mode="tree">
+        <log id="MAPTreeLogger.0" spec="multitypetree.util.MAPTreeLogger" multiTypeTree="@Tree.t:data" posterior="@posterior"/>
+    </logger>
+    
+    <logger id="typednodetreelog.t:data" fileName="$(filebase).data.typedNode.trees" logEvery="10000" mode="tree">
+        <log id="TypedNodeTreeLogger.0" spec="multitypetree.util.TypedNodeTreeLogger" multiTypeTree="@Tree.t:data"/>
+    </logger>
+    
+</run>
+
+</beast>

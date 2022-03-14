@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='MultiTypeTree' beautistatus='noAutoSetClockRate' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="BEAST v2.5.0:MultiTypeTree v7.0.0" version="2.5">
+
+
+    <data id="fasta_Neutral_fullrun_2_m0" name="alignment">
+                                <sequence id="seq_0_pop0_800" taxon="0_pop0_800" totalcount="4" value="AACGTTTGGGCTAAGCCGCAAGGATAGCAGCCATTGCGATCCATGACACACGGTAGATAAGATGAAAAACCGCCAAGTACACTCCCAGCACTTTCCAAGCGAAGTGGTAGCCTAAGTATGTGATAAGGCAAGTATTCAACCCCTGATAAAAAAGGCATACATGAGATATTAATAATCCCAGCCTTGTTGACCGAAATTAATAATAGCGTAAAGTATCCAAAATGAAGCCGGAGGCTGCAAAAACAATAACAATCCACAGATAGAATTAGGGAAATCACATCAACCGGAAAGACCGATGAAATTGAGGACCTACAAAGTGCGGGCATAGAAGCCGATTACATAGGTAGCATTGATACCATCCCACACGATAGAAAGAAAAAGAGTATGAGAAGGGACGGATAGGCTTGAAATTGTTCCGATACTGTACACAACAATGCAACACAAGAAAGATAAAACTGAGATAATACCCAGTAGAACGCAAAGTAGCCAGTAAGAAGAACGCGTCTACGCGCAGAACTGACGGGCAGGAGTTCCTGCACTGCAAGCGGTGGCCCATAAAATGCCGCTACACAACACGATTGAGCACCGAGCCCCCAAAAACGGACCTCTAAAGGAGAGAGACGGAGGCAATCGTAGCGTAACGAGAACTGAGAAGAAAGTTAACTGATCACGGCGACACGCCTAGGAACTTTGTGGTTAAACGGAAAAGACAAGTCGGTTAAAACAGAAAGCCCTACGGTAAAATTATGACAATTCAGCAAACATATGGCCATTAGATGATTTCCTGGATATATGCGACGGTGTGGGCTTGCTGTTTAGTGCATTAGGACTAGAAATAAACGACATAGACGGAGACTTGCAAAAGTTGATAGAACGACAGAGAAAGTTAAAGTATAGAAATACTCCCATAGTGCCACATACAGGAATGTTCTAAACAGATCAAGAGACGAAACTACTTAGATAACATATAGAATGTACCAAACGTACATGTTCGTATGACTGAAGTCAGAATGCTATAGTCGCAAACGACAAGAAAAACAAATCACACCGAAGGCTGGTCCCGTCACAGTGGACATAATGCGTACGTAACCGGAATTGGCGGGAAAGATACCCCCTATGGATCAGGAAACCCCAATCTTCATGTCGAGGGTGGGAGCTAAGCGGTGACCGCTATGGCGAAGCGTACAAAGACCAAGCAACACTTAGAAAGGAAGAATAGGTCATGCTAAACTACAAGGAGGTTAAGCTAAAGGAATACACAGCATAACTGTAAGAGCCATAAAACTTTTAAAACGAGATTCAAATAATCAGCATACAACTGGAATAAGGGCAACAAGAGACCACCGCAGCCCTTACAAAATGGTGGAGAACGGAGAGGGAGCATACACGAAAGTGGACACAACATGCAGACTAGGTGTGGTGATGAGGTAACAGTGATAGATGGTATTAAAACTAGGGGGCCGTACGCGAAAAACCAAGGACACAATTAGGAAGAGCGAACACCAAAACAGGGGACAAACTTGAGAAGTGGATATTAGAATGATAACAGGCAAAAACCATGACCAATAAAAAAAAATAAATAGCCGTAGATGATATGTTATTTTAAAAAAGTAATAAACTTAGGATACAGGTGAGACTGGATACCAACTAGAAGAAGACGAACAATGAACCCCAGGCCGACACAGAGATCGTAGGAGAGACGGAGAAAGCGCAATCAATTACCTTAGATGGAAGAGAACTAAGACGCGTGTGTTTCAAGCACGAACTGAAGGAACATTGGGGCGACTCGCCAGAAACATGACTCAGGAACCAACACAAAATACTACTACACTAGCAGTTTAGTAATGAAGCGAGACGCACATTGCCCTGATGTCAGGCATAACCTAAGAAGAGGAAACAGCAGTAAGAGTCACCGAAACGATTAAGGTAGTGAGACGAACAATACACAGTTGAAAAAGAAGGAGTGTAAGAACTCAACAGAATTAGACGAAACGAGTGCAAAACGAGTAAACCCAGCAATGGAAATGGACAGTGAAGGGCATTCCTCTGGTCAAAAGCCGGGGTCAAAATCCAGGTACTAGTCCAATGAGACACGGAAACCAAGTGGTAGCGCGGCCACCGATTGGGTGTATGAACCAAAAAGCATTATGAGATTCACAGTTAACGATTTGCCGGAAACAGCAAGCGTGAGGGTAAGAAAGAATAGAATAGTCGGATGCTAGATGGATAACACAAATCACAGGGACTTGGTTCTGAAGAACTGCTAGTTACACCTATAGAGAAGAAACACATGATCATCATCGATAATTAACACTGGAGTGGATGTATATATCTAATCCATTAATAAATACGACAAACTAATACGCATAGGGATAGATTCGGATGGAATACAGAAGGCCGTATAGCTACACCCTATCTAAACGACAAAGAGAGAGGAAGCCACAAAGGATAGACAGGGATTGAAAGCTCTACAATCGCGGAGGTGGTTCACTCTGGAAACGCTCCAAACGAGGGAAATCAGAAACCTCTAACCCTCCCATGAACGTGGAGACGAGGCGCAGGAAAACATCGTGCCACTATAGGAATAGCAGCGCATCCTA"/>
+                                                          </data>
+
+
+
+<map name="Uniform" >beast.math.distributions.Uniform</map>
+<map name="Exponential" >beast.math.distributions.Exponential</map>
+<map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal" >beast.math.distributions.Normal</map>
+<map name="Beta" >beast.math.distributions.Beta</map>
+<map name="Gamma" >beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+<map name="prior" >beast.math.distributions.Prior</map>
+<map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+<map name="OneOnX" >beast.math.distributions.OneOnX</map>
+
+
+<run id="mcmc" spec="MCMC" chainLength="50000000">
+    <state id="state" storeEvery="5000">
+        <stateNode id="Tree.t:fasta_Neutral_fullrun_2_m0" spec="beast.evolution.tree.StructuredCoalescentMultiTypeTree">
+            <migrationModel id="migModelInit.t:fasta_Neutral_fullrun_2_m0" spec="beast.evolution.tree.SCMigrationModel">
+                <parameter id="RealParameter.0" dimension="2" estimate="false" name="rateMatrix">0.001 0.001</parameter>
+                <parameter id="RealParameter.1" estimate="false" name="rateMatrixScaleFactor">1.0</parameter>
+                <parameter id="RealParameter.2" dimension="2" estimate="false" name="popSizes">100.0 100.0</parameter>
+                <parameter id="RealParameter.3" estimate="false" name="popSizesScaleFactor">1.0</parameter>
+                <typeSet id="typeSet.t:fasta_Neutral_fullrun_2_m0" spec="beast.evolution.tree.TypeSet" value="">
+                    <typeTraitSet id="typeTraitSetInput.t:fasta_Neutral_fullrun_2_m0" spec="beast.evolution.tree.TraitSet" traitname="type">
+                       
+                        <taxa id="taxonsSet.t:fasta_Neutral_fullrun_2_m0" spec="TaxonSet">
+                            <alignment idref="fasta_Neutral_fullrun_2_m0"/>
+                        </taxa>
+                    </typeTraitSet>
+                </typeSet>
+            </migrationModel>
+            <typeTrait idref="typeTraitSetInput.t:fasta_Neutral_fullrun_2_m0"/>
+            <typeSet idref="typeSet.t:fasta_Neutral_fullrun_2_m0"/>
+            <trait id="dateTrait.t:fasta_Neutral_fullrun_2_m0" spec="beast.evolution.tree.TraitSet" taxa="@taxonsSet.t:fasta_Neutral_fullrun_2_m0" traitname="date-forward"></trait>
+            <taxonset idref="taxonsSet.t:fasta_Neutral_fullrun_2_m0"/>
+        </stateNode>
+        <parameter id="popSizes.t:fasta_Neutral_fullrun_2_m0" dimension="2" name="stateNode" lower="99.9" upper="100.1">100.0 100.0</parameter>
+        <parameter id="rateMatrix.t:fasta_Neutral_fullrun_2_m0" dimension="2" name="stateNode">0.01 0.01</parameter>
+        <parameter id="freqParameter.s:fasta_Neutral_fullrun_2_m0" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+    </state>
+    
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <prior id="popSizesPrior.t:fasta_Neutral_fullrun_2_m0" name="distribution" x="@popSizes.t:fasta_Neutral_fullrun_2_m0">
+                <Uniform id="Uniform.7" name="distr" upper="5000.0"/>
+            </prior>
+            <prior id="rateMatrixPrior.t:fasta_Neutral_fullrun_2_m0" name="distribution" x="@rateMatrix.t:fasta_Neutral_fullrun_2_m0">
+                <Uniform id="Uniform.6" name="distr"/>
+            </prior>
+            <distribution id="structuredCoalescent.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.distributions.StructuredCoalescentTreeDensity" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0">
+                <migrationModel id="migModel.t:fasta_Neutral_fullrun_2_m0" spec="beast.evolution.tree.SCMigrationModel" popSizes="@popSizes.t:fasta_Neutral_fullrun_2_m0" rateMatrix="@rateMatrix.t:fasta_Neutral_fullrun_2_m0" typeSet="@typeSet.t:fasta_Neutral_fullrun_2_m0">
+                    <parameter id="rateMatrixScaleFactor.t:fasta_Neutral_fullrun_2_m0" estimate="false" name="rateMatrixScaleFactor">1.0</parameter>
+                    <parameter id="popSizesScaleFactor.t:fasta_Neutral_fullrun_2_m0" estimate="false" name="popSizesScaleFactor">1.0</parameter>
+                </migrationModel>
+            </distribution>
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution">
+            <distribution id="treeLikelihood.fasta_Neutral_fullrun_2_m0" spec="TreeLikelihood" data="@fasta_Neutral_fullrun_2_m0" tree="@Tree.t:fasta_Neutral_fullrun_2_m0">
+                <siteModel id="SiteModel.s:fasta_Neutral_fullrun_2_m0" spec="SiteModel">
+                    <parameter id="mutationRate.s:fasta_Neutral_fullrun_2_m0" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:fasta_Neutral_fullrun_2_m0" estimate="false" name="shape">1.0</parameter>
+                    <parameter id="proportionInvariant.s:fasta_Neutral_fullrun_2_m0" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel id="gtr.s:fasta_Neutral_fullrun_2_m0" spec="GTR">
+                        <parameter id="rateAC.s:Scenario_1" estimate="false" lower="0.0" name="rateAC">1.0</parameter>
+                        <parameter id="rateAG.s:Scenario_1" estimate="false" lower="0.0" name="rateAG">1.0</parameter>
+                        <parameter id="rateAT.s:Scenario_1" estimate="false" lower="0.0" name="rateAT">1.0</parameter>
+                        <parameter id="rateCG.s:Scenario_1" estimate="false" lower="0.0" name="rateCG">1.0</parameter>
+                        <parameter id="rateCT.s:Scenario_1" estimate="false" lower="0.0" name="rateCT">1.0</parameter>
+                        <parameter id="rateGT.s:Scenario_1" estimate="false" lower="0.0" name="rateGT">1.0</parameter>
+                        <frequencies id="estimatedFreqs.s:fasta_Neutral_fullrun_2_m0" spec="Frequencies" frequencies="@freqParameter.s:fasta_Neutral_fullrun_2_m0"/>
+                    </substModel>
+                </siteModel>
+                <branchRateModel id="StrictClock.c:fasta_Neutral_fullrun_2_m0" spec="beast.evolution.branchratemodel.StrictClockModel">
+                    <parameter id="clockRate.c:fasta_Neutral_fullrun_2_m0" estimate="false" name="clock.rate">2.16E-6</parameter>
+                </branchRateModel>
+            </distribution>
+        </distribution>
+    </distribution>
+
+
+    <operator id="STX.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.operators.TypedSubtreeExchange" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0" weight="10.0"/>
+
+    <operator id="TWB.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.operators.TypedWilsonBalding" alpha="0.2" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0" weight="10.0"/>
+
+    <operator id="NR.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.operators.NodeRetype" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0" weight="10.0"/>
+
+    <operator id="NSR1.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.operators.NodeShiftRetype" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0" rootOnly="true" weight="10.0"/>
+
+    <operator id="NSR2.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.operators.NodeShiftRetype" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0" noRoot="true" weight="10.0"/>
+
+    <operator id="MTU.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.operators.MultiTypeUniform" includeRoot="true" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0" weight="10.0"/>
+
+    <operator id="MTTS.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.operators.MultiTypeTreeScale" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0" scaleFactor="0.98" useOldTreeScaler="true" weight="10.0"/>
+
+    <operator id="MTTUpDown.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.operators.MultiTypeTreeScale" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0" scaleFactor="0.98" useOldTreeScaler="true" weight="10.0">
+        <parameter idref="popSizes.t:fasta_Neutral_fullrun_2_m0"/>
+        <parameterInverse idref="rateMatrix.t:fasta_Neutral_fullrun_2_m0"/>
+    </operator>
+
+    <operator id="MTTUpDownScaleFactors.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.operators.MultiTypeTreeScale" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0" scaleFactor="0.98" useOldTreeScaler="true" weight="10.0"/>
+
+    <operator id="FrequenciesExchanger.s:fasta_Neutral_fullrun_2_m0" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
+        <parameter idref="freqParameter.s:fasta_Neutral_fullrun_2_m0"/>
+    </operator>
+
+    <operator id="popSizesScaler.t:fasta_Neutral_fullrun_2_m0" spec="ScaleOperator" parameter="@popSizes.t:fasta_Neutral_fullrun_2_m0" scaleFactor="0.8" weight="1.0"/>
+
+    <operator id="rateMatrixScaler.t:fasta_Neutral_fullrun_2_m0" spec="ScaleOperator" parameter="@rateMatrix.t:fasta_Neutral_fullrun_2_m0" scaleFactor="0.8" weight="1.0" scaleAll="true"/>
+
+    <logger id="tracelog" fileName="$(filebase).log" logEvery="1000">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+        <log idref="treeLikelihood.fasta_Neutral_fullrun_2_m0"/>
+        <log id="treeHeight.t:fasta_Neutral_fullrun_2_m0" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:fasta_Neutral_fullrun_2_m0"/>
+        <log id="treeLength.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.util.TreeLengthLogger" tree="@Tree.t:fasta_Neutral_fullrun_2_m0"/>
+        <log id="typeLengths.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.util.TypeLengths" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0"/>
+        <log id="changeCounts.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.util.TypeChangeCounts" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0"/>
+        <log id="nodeTypeCounts.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.util.NodeTypeCounts" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0"/>
+        <log id="rootTypeLogger.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.util.TreeRootTypeLogger" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0"/>
+        <log id="migModelLogger.t:fasta_Neutral_fullrun_2_m0" spec="multitypetree.util.MigrationModelLogger" migrationModel="@migModel.t:fasta_Neutral_fullrun_2_m0" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0"/>
+        <log idref="freqParameter.s:fasta_Neutral_fullrun_2_m0"/>
+    </logger>
+
+    <logger id="screenlog" logEvery="1000">
+        <log idref="posterior"/>
+        <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+    </logger>
+
+    <logger id="treelog.t:alignment" fileName="$(filebase).$(tree).trees" logEvery="10000" mode="tree">
+        <log idref="Tree.t:fasta_Neutral_fullrun_2_m0"/>
+    </logger>
+
+    <logger id="maptreelog.t:fasta_Neutral_fullrun_2_m0" fileName="$(filebase).fasta_Neutral_fullrun_2_m0.map.trees" logEvery="10000" mode="tree">
+        <log id="MAPTreeLogger.0" spec="multitypetree.util.MAPTreeLogger" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0" posterior="@posterior"/>
+    </logger>
+
+    <logger id="typednodetreelog.t:fasta_Neutral_fullrun_2_m0" fileName="$(filebase).fasta_Neutral_fullrun_2_m0.typedNode.trees" logEvery="10000" mode="tree">
+        <log id="TypedNodeTreeLogger.0" spec="multitypetree.util.TypedNodeTreeLogger" multiTypeTree="@Tree.t:fasta_Neutral_fullrun_2_m0"/>
+    </logger>
+
+</run>
+
+</beast>
