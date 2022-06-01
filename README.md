@@ -8,7 +8,7 @@ The file 'Lemey_sequence_data.sh' from the folder 'Code_run_cluster' can be ran 
 The file 'ConstructRealTree.sh' from the folder 'Code_run_cluster' will create the real phylogenetic trees from the simulations when ran on the cluster on the simulated data. This file uses the R file 'Tree_backwards.R'.  
 After creating these files, one can run 'Lemey_sequence_withtree.sh' to analyse the same simulations when using the real tree in BEAST2.
 
-The results (saved in .log files) from the BEAST2 analyses of Lemey's model is then analysed with the file 'Creat_Figures.R' from folder 'Rcode' to create the main figures in the result section of the manuscript. This file uses the functions described in the file 'Functions.R' from the 'Rcode' folder. 
+The results (saved in .log files) from the BEAST2 analyses of Lemey's model is then analysed with the file 'Create_Figures.R' from folder 'Rcode' to create the main figures in the result section of the manuscript. This file uses the functions described in the file 'Functions.R' from the 'Rcode' folder. 
 
 We did not save all .log files created with the analysis, as saving these files requires a large amount of memory and due to the possibility to recreate these data if neccasery, we prefer to save resources by not keeping these files on a public server. 
 
